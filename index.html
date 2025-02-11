@@ -6,6 +6,7 @@
     <title>IP CCTV Solutions</title>
     <link href="./styles.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.284.0/dist/umd/lucide.min.js"></script>
     <script>
         // Tailwind CSS Configuration
         tailwind.config = {
@@ -47,7 +48,7 @@
             </button>
         </div>
         <div class="bg-red-600 pb text-white py-2 text-center">
-            <marquee behavior="scroll" direction="left">Spesial Promo 12.12 - Discount Hingga 12%!</marquee>
+            <marquee behavior="scroll" direction="left">* Selamat Datang di Toko Sip * Dapatkan Spesial Promo 12.12 - Discount Hingga 12%!</marquee>
         </div>
     </nav>
 
@@ -232,7 +233,7 @@
 </section>
 
 <!-- Benefits Section -->
-<section class="py-12 px-4">
+<section class="py-12 px-4 bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto">
         <!-- Heading -->
         <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Mengapa Memilih IP CCTV Kami?</h2>
@@ -240,7 +241,7 @@
         <!-- Fitur 1: Instalasi Mudah -->
         <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
             <!-- Left Side: Text Content -->
-            <div class="flex flex-col space-y-4">
+            <div class="flex flex-col space-y-4 transition-transform duration-300 ease-in-out hover:translate-x-2">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Instalasi Mudah</h3>
                 <p class="text-gray-600 dark:text-gray-300">
                     Tidak perlu repot! IP CCTV kami dirancang untuk instalasi yang cepat dan mudah. Cukup pasang dan hubungkan ke WiFi, Anda siap memantau rumah dari mana saja.
@@ -248,7 +249,7 @@
             </div>
             <!-- Right Side: Image -->
             <div class="flex justify-center">
-                <img src="/img/instalasi.jpg" alt="Instalasi Mudah" class="rounded-lg shadow-lg w-full max-w-md">
+                <img src="/img/instalasi.jpg" alt="Instalasi Mudah" class="rounded-lg shadow-lg w-full max-w-md transition-transform duration-300 ease-in-out hover:scale-105">
             </div>
         </div>
 
@@ -256,10 +257,10 @@
         <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
             <!-- Left Side: Image -->
             <div class="flex justify-center order-2 md:order-1">
-                <img src="/img/garansi.jpeg" alt="Garansi 2 Tahun" class="rounded-lg shadow-lg w-full max-w-md">
+                <img src="/img/garansi.jpeg" alt="Garansi 2 Tahun" class="rounded-lg shadow-lg w-full max-w-md transition-transform duration-300 ease-in-out hover:scale-105">
             </div>
             <!-- Right Side: Text Content -->
-            <div class="flex flex-col space-y-4 order-1 md:order-2">
+            <div class="flex flex-col space-y-4 order-1 md:order-2 transition-transform duration-300 ease-in-out hover:-translate-x-2">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Garansi 2 Tahun</h3>
                 <p class="text-gray-600 dark:text-gray-300">
                     Kami percaya pada kualitas produk kami. Nikmati garansi 2 tahun tanpa syarat rumit, memberikan Anda ketenangan pikiran.
@@ -270,7 +271,7 @@
         <!-- Fitur 3: Dukungan Teknis Gratis -->
         <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Left Side: Text Content -->
-            <div class="flex flex-col space-y-4">
+            <div class="flex flex-col space-y-4 transition-transform duration-300 ease-in-out hover:translate-x-2">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Dukungan Teknis Gratis</h3>
                 <p class="text-gray-600 dark:text-gray-300">
                     Tim dukungan teknis kami siap membantu Anda 24/7. Jika ada masalah, kami akan segera menyelesaikannya tanpa biaya tambahan.
@@ -278,32 +279,246 @@
             </div>
             <!-- Right Side: Image -->
             <div class="flex justify-center">
-                <img src="/img/support.jpeg" alt="Dukungan Teknis Gratis" class="rounded-lg shadow-lg w-full max-w-md">
+                <img src="/img/support.jpeg" alt="Dukungan Teknis Gratis" class="rounded-lg shadow-lg w-full max-w-md transition-transform duration-300 ease-in-out hover:scale-105">
             </div>
         </div>
     </div>
 </section>
 
-    <!-- CTA Section -->
-    <section class="py-12 px-4 bg-blue-600 dark:bg-blue-700">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Special Offer - Limited Time!</h2>
-            <p class="text-xl text-white mb-8">Get 20% off on all IP CCTV packages + Free Installation</p>
-            <div class="space-x-4">
-                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition">
-                    Buy Now
-                </button>
-                <button class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
-                    Contact Sales
-                </button>
+<!-- CTA Section -->
+<section class="py-12 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-no-repeat bg-cover bg-center" style="background-image: url('/img/bg.jpeg');"></div>
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container mx-auto text-center relative z-10">
+        <h2 class="text-3xl font-bold text-white mb-6">Penawaran Spesial - 12.12!</h2>
+        <p class="text-xl text-white mb-8">Dapatkan diskon 12% untuk semua paket IP CCTV + Gratis Kartu Memori</p>
+        <button class="bg-white text-blue-600 px-12 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 transition">
+            Beli Sekarang
+        </button>
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="py-12 px-4 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Apa Kata Mereka?</h2>
+        <!-- Testimonial Slider -->
+        <div id="testimonial-slider" class="relative overflow-hidden">
+            <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-container">
+                <!-- Testimonial 1 -->
+                <div class="min-w-full px-4 py-8 flex flex-col items-center space-y-4">
+                    <img src="/img/budi.jpg" alt="Budi Santoso" class="w-20 h-20 rounded-full object-cover border-2 border-blue-600 shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        "IP CCTV ini sangat mudah digunakan dan kualitas videonya luar biasa. Sangat membantu menjaga keamanan rumah saya!"
+                    </p>
+                    <div class="font-semibold text-gray-900 dark:text-white">- Budi Handuk</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="min-w-full px-4 py-8 flex flex-col items-center space-y-4">
+                    <img src="/img/ani.jpg" alt="Ani Rahmawati" class="w-20 h-20 rounded-full object-cover border-2 border-blue-600 shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        "Pelayanan pelanggan sangat baik, instalasi cepat, dan garansi memberikan rasa aman tambahan. Sangat direkomendasikan!"
+                    </p>
+                    <div class="font-semibold text-gray-900 dark:text-white">- Ani Rahmawati</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="min-w-full px-4 py-8 flex flex-col items-center space-y-4">
+                    <img src="/img/rizky.jpeg" alt="Rizky Pratama" class="w-20 h-20 rounded-full object-cover border-2 border-blue-600 shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        "Kamera ini memiliki fitur canggih seperti deteksi gerakan dan penglihatan malam. Saya merasa lebih tenang sekarang."
+                    </p>
+                    <div class="font-semibold text-gray-900 dark:text-white">- Rizky Billar</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- JavaScript for Automatic Sliding -->
+<script>
+    const testimonials = document.getElementById("testimonial-container");
+    let testimonialIndex = 0;
+
+    function slideTestimonials() {
+        testimonialIndex = (testimonialIndex + 1) % 3; // Loop through 3 testimonials
+        testimonials.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+    }
+
+    setInterval(slideTestimonials, 5000); // Change testimonial every 5 seconds
+</script>
+
+<section class="py-16 px-4">
+    <div class="container mx-auto max-w-7xl">
+        <!-- Header Section -->
+        <div class="text-center mb-12">
+            <span class="inline-block px-3 py-1 text-sm font-semibold bg-gray-100 text-gray-800 rounded-full mb-4">
+                CCTV Package Pricing
+            </span>
+            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Pilih Paket CCTV Sesuai Kebutuhan Anda
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Semua paket dilengkapi dengan teknologi terbaru dan instalasi profesional
+            </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8" id="pricingCards">
+            <!-- Cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Promo Banner -->
+        <div class="mt-12 text-center">
+            <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2 blink">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+            Promo terbatas! Dapatkan diskon tambahan 12% untuk pembelian hari ini
+            </p>
+        </div>
+
+        <style>
+            @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            }
+
+            .blink {
+            animation: blink 3s infinite;
+            }
+        </style>
+    </div>
+</section>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Pricing data
+    const packages = [
+        {
+            name: "Basic",
+            price: 150000,
+            features: [
+                "1 Kamera IP CCTV Resolusi 4k",
+                "Anti Hujan & Debu",
+                "Garansi 1 Tahun",
+                "Support 24/7",
+                "Mobile App Access"
+            ],
+            icon: "video"
+        },
+        {
+            name: "Premium",
+            price: 250000,
+            features: [
+                "2 Kamera IP CCTV Resolusi 4k",
+                "Deteksi Gerakan AI",
+                "Pemasangan Gratis",
+                "Garansi 2 Tahun",
+                "Support 24/7 Prioritas",
+                "Mobile App Access",
+                "7 Hari Cloud Storage"
+            ],
+            icon: "star",
+            featured: true
+        },
+        {
+            name: "Ultimate",
+            price: 400000,
+            features: [
+                "4 Kamera IP CCTV Resolusi 4k",
+                "AI Advanced Detection",
+                "Night Vision Pro",
+                "Pemasangan Gratis",
+                "Garansi 2 Tahun",
+                "Support 24/7 VIP",
+                "Mobile App Access",
+                "30 Hari Cloud Storage",
+                "Smart Home Integration"
+            ],
+            icon: "shield"
+        }
+    ];
+
+    // Format currency to IDR
+    function formatPrice(price) {
+        return new Intl.NumberFormat('id-ID').format(price);
+    }
+
+    // Generate pricing cards
+    function renderPricingCards() {
+        const cardsContainer = document.getElementById('pricingCards');
+        cardsContainer.innerHTML = packages.map((pkg, index) => `
+            <div class="relative p-8 rounded-2xl transition-all duration-300 hover:scale-105 ${
+                pkg.featured 
+                    ? 'bg-blue-600 text-white shadow-xl scale-105 border-2 border-blue-400' 
+                    : 'bg-white dark:bg-gray-800 shadow-lg'
+            }">
+                ${pkg.featured ? `
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold bg-yellow-400 text-gray-900 rounded-full">
+                            Most Popular
+                        </span>
+                    </div>
+                ` : ''}
+                
+                <div class="text-center">
+                    <i data-lucide="${pkg.icon}" class="w-6 h-6 mb-4 mx-auto ${
+                        pkg.featured ? 'text-white' : 'text-blue-500'
+                    }"></i>
+                    <h3 class="text-xl font-bold mb-4 ${
+                        pkg.featured ? 'text-white' : 'text-gray-900 dark:text-white'
+                    }">
+                        ${pkg.name}
+                    </h3>
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold ${
+                            pkg.featured ? 'text-white' : 'text-blue-600 dark:text-blue-400'
+                        }">
+                            Rp ${formatPrice(pkg.price)}
+                        </span>
+                        <span class="${
+                            pkg.featured ? 'text-blue-100' : 'text-gray-500'
+                        }">/</span>
+                    </div>
+                </div>
+                <ul class="space-y-4 mb-8">
+                    ${pkg.features.map(feature => `
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-5 h-5 ${
+                                pkg.featured ? 'text-blue-200' : 'text-blue-500'
+                            }"></i>
+                            <span class="${
+                                pkg.featured ? 'text-blue-100' : 'text-gray-600 dark:text-gray-300'
+                            }">${feature}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+                <button class="w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
+                    pkg.featured
+                        ? 'bg-white text-blue-600 hover:bg-blue-50'
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                }">
+                    Pilih Paket
+                </button>
+            </div>
+        `).join('');
+
+        // Reinitialize Lucide icons for new content
+        lucide.createIcons();
+    }
+
+    // Initial render
+    renderPricingCards();
+</script>
 
     <!-- Footer -->
     <footer class="py-8 px-4 bg-gray-100 dark:bg-gray-800">
         <div class="container mx-auto text-center text-gray-600 dark:text-gray-300">
-            <p>&copy; 2025 SecureCam. All rights reserved.</p>
+            <p>&copy; 2025 Toko SiP. All rights reserved.</p>
         </div>
     </footer>
 </body>
