@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP CCTV Solutions</title>
+    <link href="./styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS Configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        };
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+
+        // Initialize dark mode based on localStorage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/img/logo.png" alt="Toko SIP Logo" class="h-10">
+            </div>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                <svg class="w-6 h-6 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg class="w-6 h-6 hidden dark:block text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="bg-red-600 pb text-white py-2 text-center">
+            <marquee behavior="scroll" direction="left">Spesial Promo 12.12 - Discount Hingga 12%!</marquee>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="pt-24 pb-12 px-4 md:pt-32">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Left Side: Text Content -->
+        <div class="text-left">
+            <h1 class="text-4xl pt-12 md:text-6xl font-bold text-gray-900 dark:text-white mb-6 relative overflow-hidden">
+                <!-- Placeholder for dynamic text -->
+                <span id="carousel-text" class="block"></span>
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Dengan Kemampuan deteksi AI dan Resolusi 4K, Rumah Anda Akan Selalu Aman
+            </p>
+            <button class="bg-blue-600 text-white px-10 py-4 rounded-lg hover:bg-blue-700 hover:scale-105 transition">
+                Lindungi Rumah Anda!
+            </button>
+        </div>
+
+        <!-- Right Side: Product Image -->
+        <div class="flex justify-center">
+            <img src="/img/hero.png" alt="CCTV Product" class="w-full max-w-md">
+        </div>
+    </div>
+</section>
+
+<!-- CSS for Text Carousel Animation -->
+<style>
+    /* Animation for text sliding in and out */
+    @keyframes slideIn {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+
+    /* Apply animation to the text */
+    .slide-in {
+        animation: slideIn 0.5s ease-in-out forwards;
+    }
+
+    .slide-out {
+        animation: slideOut 0.5s ease-in-out forwards;
+    }
+</style>
+
+<!-- JavaScript for Text Carousel Logic -->
+<script>
+    // Array of texts to cycle through
+    const texts = [
+        "Pantau Rumah Dari Mana & Kapan Saja",
+        "Keamanan Rumah Anda Prioritas Kami",
+        "Teknologi AI untuk Deteksi Gerakan dan Wajah",
+        "Resolusi 4K untuk Gambar yang Tajam"
+    ];
+
+    let currentIndex = 0;
+
+    function updateText() {
+        const textElement = document.getElementById("carousel-text");
+
+        // Add slide-out animation before changing text
+        textElement.classList.add("slide-out");
+
+        // Wait for the slide-out animation to finish
+        setTimeout(() => {
+            // Update the text content
+            textElement.textContent = texts[currentIndex];
+
+            // Remove slide-out and add slide-in animation
+            textElement.classList.remove("slide-out");
+            textElement.classList.add("slide-in");
+
+            // Reset animation after it completes
+            setTimeout(() => {
+                textElement.classList.remove("slide-in");
+            }, 500); // Match this duration with the animation duration
+
+            // Move to the next text
+            currentIndex = (currentIndex + 1) % texts.length;
+        }, 500); // Match this duration with the animation duration
+    }
+
+    // Start the carousel
+    setInterval(updateText, 3000); // Change text every 3 seconds
+</script>
+
+    <!-- Features Section -->
+<section class="py-12 px-4 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Fitur Unggulan</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+            <!-- Feature 1: 4K Ultra HD -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-blue-600 dark:text-blue-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">4K Ultra HD</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Resolusi 4K untuk gambar yang sangat jernih.</p>
+            </div>
+
+            <!-- Feature 2: AI Detection -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-green-600 dark:text-green-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">AI Detection</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Deteksi gerakan pintar dengan AI.</p>
+            </div>
+
+            <!-- Feature 3: Rotasi 360 Derajat -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-yellow-600 dark:text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Rotasi 360°</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Rotasi penuh untuk cakupan maksimal.</p>
+            </div>
+
+            <!-- Feature 4: Build-in Speaker -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-red-600 dark:text-red-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Speaker Terintegrasi</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Komunikasi dua arah melalui speaker.</p>
+            </div>
+
+            <!-- Feature 5: Video Playback -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-purple-600 dark:text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168a4 4 0 01-5.514-2.884l-1.405-1.405A6 6 0 1018 10v4.572a2 2 0 01-1.752 1.968l-1.405 1.405A4 4 0 0114.752 11.168z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Video Playback</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Putar ulang rekaman kapan saja.</p>
+            </div>
+
+            <!-- Feature 6: Cloud Storage -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-indigo-600 dark:text-indigo-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Penyimpanan Cloud</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Simpan rekaman aman di cloud.</p>
+            </div>
+
+            <!-- Feature 7: Night Vision -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-teal-600 dark:text-teal-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Night Vision</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Penglihatan malam yang jelas dan tajam.</p>
+            </div>
+
+            <!-- Feature 8: Wifi Connection -->
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 text-center">
+                <svg class="w-10 h-10 mx-auto text-orange-600 dark:text-orange-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2v-4.5a2 2 0 00-2-2H8a2 2 0 00-2 2V19a2 2 0 002 2z"></path>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Koneksi WiFi</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Koneksi nirkabel cepat dan stabil.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-12 px-4">
+    <div class="container mx-auto">
+        <!-- Heading -->
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Mengapa Memilih IP CCTV Kami?</h2>
+
+        <!-- Fitur 1: Instalasi Mudah -->
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+            <!-- Left Side: Text Content -->
+            <div class="flex flex-col space-y-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Instalasi Mudah</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Tidak perlu repot! IP CCTV kami dirancang untuk instalasi yang cepat dan mudah. Cukup pasang dan hubungkan ke WiFi, Anda siap memantau rumah dari mana saja.
+                </p>
+            </div>
+            <!-- Right Side: Image -->
+            <div class="flex justify-center">
+                <img src="/img/instalasi.jpg" alt="Instalasi Mudah" class="rounded-lg shadow-lg w-full max-w-md">
+            </div>
+        </div>
+
+        <!-- Fitur 2: Garansi 2 Tahun -->
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+            <!-- Left Side: Image -->
+            <div class="flex justify-center order-2 md:order-1">
+                <img src="/img/garansi.jpeg" alt="Garansi 2 Tahun" class="rounded-lg shadow-lg w-full max-w-md">
+            </div>
+            <!-- Right Side: Text Content -->
+            <div class="flex flex-col space-y-4 order-1 md:order-2">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Garansi 2 Tahun</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Kami percaya pada kualitas produk kami. Nikmati garansi 2 tahun tanpa syarat rumit, memberikan Anda ketenangan pikiran.
+                </p>
+            </div>
+        </div>
+
+        <!-- Fitur 3: Dukungan Teknis Gratis -->
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left Side: Text Content -->
+            <div class="flex flex-col space-y-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Dukungan Teknis Gratis</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Tim dukungan teknis kami siap membantu Anda 24/7. Jika ada masalah, kami akan segera menyelesaikannya tanpa biaya tambahan.
+                </p>
+            </div>
+            <!-- Right Side: Image -->
+            <div class="flex justify-center">
+                <img src="/img/support.jpeg" alt="Dukungan Teknis Gratis" class="rounded-lg shadow-lg w-full max-w-md">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- CTA Section -->
+    <section class="py-12 px-4 bg-blue-600 dark:bg-blue-700">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Special Offer - Limited Time!</h2>
+            <p class="text-xl text-white mb-8">Get 20% off on all IP CCTV packages + Free Installation</p>
+            <div class="space-x-4">
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition">
+                    Buy Now
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto text-center text-gray-600 dark:text-gray-300">
+            <p>&copy; 2025 SecureCam. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
